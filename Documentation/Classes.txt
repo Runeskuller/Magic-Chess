@@ -1,0 +1,77 @@
+Activated Ability
+    Holds information about a specific activated ability
+        Name, tag
+        reference to the unit that owns it, tile it originates from, tile it targets
+        range information
+        conditions
+        events involved in resolving itself, their order, and how to construct them
+    Resolve itself
+    Verify it's conditions are met
+    Put a copy of itself on the stack with source and target tile declared
+
+
+Triggered Ability
+    Holds information about a specific triggered ability
+        Name, tag
+        reference to the unit that owns it, tile it originates from, tile it targets
+        how to check if an event object would trigger it
+        events involved in resolving itself, their order, and how to construct them
+    Resolve itself
+
+
+Unit
+    Holds information about a specific unit
+        name, symbol, text
+        reference to the player that owns it
+        counters currently on it
+        abilities it has
+
+
+Card
+    Holds information about a specific card
+        name, text
+        reference to the player that owns it
+    Holds an activated ability object
+    Plays itself
+
+
+Hand
+    Holds information about a player's hand
+        reference to the player that owns it
+        maximum size
+    Holds card objects
+    Draws cards from a deck
+    Discards played cards
+
+
+Deck
+    Holds information about a player's deck
+    Holds card objects in order
+    Manipulates the order of the held card objects
+
+
+Event
+    Holds references to the specific objects associated with the event
+    Changes attributes of associated objects in accordance with a specific event occuring
+    Checks if the event occuring triggers any triggered abilities
+    Creates and pushes a message to the log about the event 
+
+
+Map
+    Holds info about the map
+    Holds a 2d array of tile objects
+
+
+Tile
+    Holds the x and y position of the tile
+    Can hold a unit object
+
+
+Player
+    Has an identifying player number
+    Holds the objects associated with/owned by a player
+
+
+Stack
+    Holds ability objects in FILO order
+    Resolves abilities off the top of the stack
